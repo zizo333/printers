@@ -46,6 +46,12 @@ class PrintersCubit extends Cubit<PrintersState> {
   }
 
   Future<void> startPrinting(String ipAddress) async {
+    print(ipAddress);
+    emit(
+      state.copyWith(
+        printState: RequestState.loading,
+      ),
+    );
     try {
       await _printerManager.connect(
         type: PrinterType.network,
@@ -53,9 +59,18 @@ class PrintersCubit extends Cubit<PrintersState> {
           ipAddress: ipAddress,
         ),
       );
+      await Future.delayed(const Duration(milliseconds: 200));
       await _printerManager.disconnect(type: PrinterType.network);
-    } catch (_) {
-      throw Exception();
+      emit(
+        state.copyWith(printState: RequestState.loaded, message: 'success'),
+      );
+    } catch (error) {
+      emit(
+        state.copyWith(
+          printState: RequestState.error,
+          message: error.toString(),
+        ),
+      );
     }
   }
 
