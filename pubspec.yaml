@@ -31,13 +31,11 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.2
   equatable: ^2.0.5
-  esc_pos_printer: ^4.1.0
+  flutter_pos_printer_platform: ^1.0.9
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
-  flutter_staggered_grid_view: ^0.6.2
   ping_discover_network_forked: ^0.0.1
-  network_info_plus: ^3.0.1
   esc_pos_utils: ^1.1.0
   image: ^3.2.2
 

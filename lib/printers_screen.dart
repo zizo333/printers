@@ -9,7 +9,7 @@ class PrintersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Printers'),
+        title: const Text('Printers'),
       ),
       body: BlocProvider<PrintersCubit>(
         create: (context) => PrintersCubit()..getPrinters(),
@@ -26,7 +26,7 @@ class PrintersBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<PrintersCubit, PrintersState>(
       listener: (context, state) {
-        if (state.requestState == RequestState.loaded ||
+        if (state.requestState == RequestState.error ||
             state.printState == RequestState.error ||
             state.printState == RequestState.loaded) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -54,9 +54,11 @@ class PrintersBody extends StatelessWidget {
                           onTap: () {
                             context
                                 .read<PrintersCubit>()
-                                .print(state.printers[index]);
+                                .startPrinting(state.printers[index].address!);
                           },
-                          title: Text(state.printers[index]),
+                          title: Text(
+                            state.printers[index].name,
+                          ),
                         );
                       }),
                       separatorBuilder: ((context, index) {
