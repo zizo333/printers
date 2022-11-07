@@ -52,9 +52,9 @@ class PrintersBody extends StatelessWidget {
                       itemBuilder: ((context, index) {
                         return ListTile(
                           onTap: () {
-                            // context
-                            //     .read<PrintersCubit>()
-                            //     .startPrinting(state.printers[index].address!);
+                            context
+                                .read<PrintersCubit>()
+                                .startPrinting(state.printers[index]);
                           },
                           title: Text(
                             state.printers[index],
