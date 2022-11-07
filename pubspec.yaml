@@ -31,13 +31,14 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.2
   equatable: ^2.0.5
-  flutter_pos_printer_platform: ^1.0.9
+  esc_pos_printer: ^4.1.0
+  esc_pos_utils: ^1.1.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
-  ping_discover_network_forked: ^0.0.1
-  esc_pos_utils: ^1.1.0
   image: ^3.2.2
+  network_info_plus: ^3.0.1
+  ping_discover_network_forked: ^0.0.1
 
 dev_dependencies:
   flutter_lints: ^2.0.0

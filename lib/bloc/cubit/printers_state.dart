@@ -4,7 +4,7 @@ class PrintersState extends Equatable {
   final RequestState requestState;
   final RequestState printState;
   final String message;
-  final List<PrinterDevice> printers;
+  final List<String> printers;
 
   const PrintersState({
     required this.requestState,
@@ -26,7 +26,7 @@ class PrintersState extends Equatable {
     RequestState? requestState,
     RequestState? printState,
     String? message,
-    List<PrinterDevice>? printers,
+    List<String>? printers,
   }) {
     return PrintersState(
       requestState: requestState ?? this.requestState,
