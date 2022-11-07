@@ -54,10 +54,10 @@ class PrintersBody extends StatelessWidget {
                           onTap: () {
                             context
                                 .read<PrintersCubit>()
-                                .startPrinting(state.printers[index]);
+                                .startPrinting(state.printers[index].address!);
                           },
                           title: Text(
-                            state.printers[index],
+                            state.printers[index].name,
                           ),
                         );
                       }),
